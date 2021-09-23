@@ -31,9 +31,9 @@ FindImage(filename, byref FoundX, byref FoundY)
 ;Saves and scrolls back to top of page
 Save()
 {
-	Send, {Click 780 230}
+	Send, {Click 780 320}
 	Sleep 100
-	Send, {Tab 6}
+	Send, {Tab 5}
 	Send, {Enter}
 	Send, {WheelUp 10}
 	Sleep 500
