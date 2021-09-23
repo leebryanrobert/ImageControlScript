@@ -12,12 +12,13 @@ AddDay(i)
 	Sleep 700
 }
 
-;Increments time of day by i
+;Increments time of day by i and scrolls back to top of page
 AddTime(i)
 {
 	Send, {Click 780 245}
 	Send, {Tab 4}
 	Send, {Right %i%}
+	Send, {WheelUp 10}
 	Sleep 700
 }
 
@@ -27,39 +28,29 @@ FindImage(filename, byref FoundX, byref FoundY)
     return
 }
 
-;Scrolls all the way down and finds save button
-FindSave(byref x, byref y)
+;Saves and scrolls back to top of page
+Save()
 {
-	Send, {Click 780 245}
-	Send, {WheelDown 10}
+	Send, {Click 780 230}
 	Sleep 100
-	FindImage("save.jpg", x, y)
-	Sleep 100
+	Send, {Tab 6}
+	Send, {Enter}
 	Send, {WheelUp 10}
-	return
-}
-
-;Scrolls all the way down and clicks at x, y
-ClickSave(x, y)
-{
-	Send, {WheelDown 10}
-	Send, {Click %x% %y%}
-	Send, {WheelUp 10}
+	Sleep 500
 }
 
 SelectAll()
 {
-	FindSave(SaveX, SaveY)
 	AddDay(2)				;Go back 2 days
 	AddTime(3)				;Set time to 3am
-	ClickSave(SaveX, SaveY)	;Click Save
+	Save()					;Save
 	Send, {Click 940 245}	;Click Lighting
-	ClickSave(SaveX, SaveY)	;Click Save
+	Save()					;Save
 	AddTime(10)				;Set time to 1pm
 	Send, {Click 715 245}	;Click Day
-	ClickSave(SaveX, SaveY)	;Click Save
+	Save()					;Save
 	Send, {Click 850 245}	;Click Initial
-	ClickSave(SaveX, SaveY)	;Click Save
+	Save()					;Save
 	return
 }
 
