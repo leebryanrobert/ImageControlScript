@@ -54,7 +54,22 @@ SelectAll()
 	return
 }
 
+SelectDayNight()
+{
+	AddDay(2)				;Go back 2 days
+	AddTime(3)				;Set time to 3am
+	Save()					;Save
+	AddTime(10)				;Set time to 1pm
+	Send, {Click 715 245}	;Click Day
+	Save()					;Save
+	return
+}
+
 ;Start Script
 +^z::
 SelectAll()
+return
+
++^x::
+SelectDayNight()
 return
