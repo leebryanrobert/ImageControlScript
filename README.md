@@ -21,9 +21,11 @@ Usage:
 - Select camera
 - Wait for image to load on the right hand side of the screen
 - If none of the four reference images are set:
-  - Ctrl+Shift+Z sets all reference images
+  - Hold Z (release when image loads) sets all reference images
 - If Initial and Lighting are already set:
-  - Ctrl+Shift+X sets day and night reference images
+  - Hold X (release when image loads) sets day and night reference images
+- If Initial is already set:
+  - Hold I (release when image loads) sets day, night, and lighting reference images
 - Otherwise set images manually
 - Verify that images were set correctly and correct issues manually
 - Verify that intents have been set under the “Intent” tab for all cameras
